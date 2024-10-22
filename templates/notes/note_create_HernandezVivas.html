@@ -6,11 +6,16 @@
     <title>Nueva Nota</title>
 </head>
 <body>
-    <h1>Nueva nota:</h1>
-    <form method="post"> {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Guardar">
-
-    </form>
+    {% load crispy_forms_tags %}
+    {% block content %}
+    <div class="container my-4">
+        <h1 class="text-center">{{ view.title }}</h1>
+        <form method="post"> 
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </form>
+    </div>
+    {% endblock %}
 </body>
 </html>
