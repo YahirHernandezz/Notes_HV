@@ -3,6 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from notes_HernandezVivas.models import Note
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 
 #// from django.shortcuts import render
 #// from django.http import HttpResponse
@@ -17,6 +18,9 @@ class HomePageView(ListView):
     model = Note
 
 #!note_detail_HernandezVivas.html: Mostrar una nota individual
+class DetailNotaView(DetailView):
+    template_name = 'notes/note_detail_HernandezVivas.html'
+    model = Note
 
 #!note_create_HernandezVivas
 class CreateNotaView(LoginRequiredMixin, CreateView):
