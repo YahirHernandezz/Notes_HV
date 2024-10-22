@@ -3,7 +3,7 @@ from notes_HernandezVivas.views import HomePageView, CreateNotaView, EditNotaVie
 
 urlpatterns = [
     path('', HomePageView.as_view(), name='home'),
-    path('note_create_HernandezVivas/', CreateNotaView.as_view(), name='new'), #new/
-    path('note_edit_HernandezVivas/<int:pk>', EditNotaView.as_view(), name='edit'), #`('<int:pk>/edit/')`
+    path('new/', CreateNotaView.as_view(), name='new'), #new/
+    path('<int:pk>/edit', EditNotaView.as_view(), name='edit'), #`('<int:pk>/edit/')`
 
 ]

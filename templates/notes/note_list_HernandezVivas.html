@@ -9,7 +9,7 @@
     <h1>Notas HernandezVivas</h1>
     <ul>
         {% for nota in object_list %}
-            <li> {{ nota.title }} --- {{nota.content}} <a href="">Edit</a> <a href="">Delete</a > </li>
+            <li> {{ nota.title }} --- {{nota.content}} <a href="{% url 'edit' nota.id %} ">Edit</a> <a href="">Delete</a > </li>
         {% endfor %}
     </ul>    
 </body>

@@ -23,22 +23,20 @@ class CreateNotaView(LoginRequiredMixin, CreateView):
     template_name = "notes/note_create_HernandezVivas.html"
     model = Note
     fields = ['title', 'content']
+    success_url = reverse_lazy('home')
+
 
     def form_valid(self, form):
         form.instance.user = self.request.user  
         return super().form_valid(form)
 
-    def get_success_url(self):
-        return reverse_lazy('home')
 
 #!note_edit_HernandezVivas.html: Crear/editar notas
 class EditNotaView(UpdateView):
     template_name = 'notes/note_edit_HernandezVivas.html'
     model = Note
     fields = ['title', 'content']
-
-    def get_success_url(self):
-        return reverse_lazy('home')
+    success_url = reverse_lazy('home')
 
 #?note_delete_HernandezVivas.html: Eliminar notas
  
