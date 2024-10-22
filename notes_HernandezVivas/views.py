@@ -2,7 +2,7 @@ from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from notes_HernandezVivas.models import Note
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 #// from django.shortcuts import render
 #// from django.http import HttpResponse
@@ -18,7 +18,7 @@ class HomePageView(ListView):
 
 #!note_detail_HernandezVivas.html: Mostrar una nota individual
 
-#?note_create_HernandezVivas
+#!note_create_HernandezVivas
 class CreateNotaView(LoginRequiredMixin, CreateView):
     template_name = "notes/note_create_HernandezVivas.html"
     model = Note
@@ -30,7 +30,6 @@ class CreateNotaView(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user  
         return super().form_valid(form)
 
-
 #!note_edit_HernandezVivas.html: Crear/editar notas
 class EditNotaView(UpdateView):
     template_name = 'notes/note_edit_HernandezVivas.html'
@@ -38,5 +37,11 @@ class EditNotaView(UpdateView):
     fields = ['title', 'content']
     success_url = reverse_lazy('home')
 
-#?note_delete_HernandezVivas.html: Eliminar notas
+#!note_delete_HernandezVivas.html: Eliminar notas
+class DeleteNotaView(DeleteView):
+    template_name = 'notes/note_delete_HernandezVivas.html'
+    model = Note
+    success_url = reverse_lazy('home')
+
+
  

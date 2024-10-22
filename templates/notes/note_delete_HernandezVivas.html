@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar nota</title>
+</head>
+<body>
+    <h1>Eliminar nota</h1>
+        <form method="post">{% csrf_token %}
+            <p>Estás seguro de borrar esta nota "{{ object.title }}"?</p>
+            {{ form }}
+            <input type="submit" value="Confirmar">
+        </form>
+</body>
+</html>
