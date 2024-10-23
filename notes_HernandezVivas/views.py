@@ -5,13 +5,6 @@ from notes_HernandezVivas.models import Note
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 
-#// from django.shortcuts import render
-#// from django.http import HttpResponse
-#//from django.views.generic.base import TemplateView
-
-#// def home(request):
-#//     return HttpResponse("Hola mundo")
-
 #!note_list_HernandezVivas: Muestra todas las notas
 class HomePageView(ListView):
     template_name = "notes/note_list_HernandezVivas.html"
@@ -46,5 +39,10 @@ class DeleteNotaView(DeleteView):
     model = Note
     success_url = reverse_lazy('home')
 
+#// from django.shortcuts import render
+#// from django.http import HttpResponse
+#//from django.views.generic.base import TemplateView
 
+#// def home(request):
+#//     return HttpResponse("Hola mundo")
  
